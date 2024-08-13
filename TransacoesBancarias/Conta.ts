@@ -1,4 +1,6 @@
-export abstract class Conta {
+import { ProcessadorPagamento } from "./interfaces/ProcessarPagamento";
+
+export abstract class Conta implements ProcessadorPagamento {
     saldo: number;
     
     constructor(saldoInicial: number) {

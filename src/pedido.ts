@@ -17,18 +17,6 @@ export class Pedido {
         })
     }
 
-    getNumeroPedido() {
-        return this.numero
-    }
-
-    getValorTotal() {
-        return this.valorTotal;
-    }
-
-    getProdutosPedido() {
-        return this.produtos.map(produto => `${produto.produto.nome} | ${produto.produto.valor}`);
-    }
-
     adicionarProduto(produto: ProdutoPedido) {
         this.produtos.push(produto)
         this.calcularTotal();
@@ -42,4 +30,18 @@ export class Pedido {
     calcularTotal(): void {
         this.valorTotal = this.produtos.reduce((total, produto) => total + produto.produto.valor, 0);
     }
+
+    getNumeroPedido() {
+        return this.numero
+    }
+
+    getValorTotal() {
+        return this.valorTotal;
+    }
+
+    getProdutosPedido() {
+        return this.produtos.map(produto => `${produto.produto.nome} | ${produto.produto.valor}`);
+    }
+
+
 }

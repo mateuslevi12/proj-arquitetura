@@ -1,7 +1,8 @@
+import { IPedidos } from "./interfaces/IPedidos";
 import { Pedido } from "./pedido";
 import { Produto } from "./produto";
 
-export class Pizzaria {
+export class Pizzaria implements IPedidos {
     nome: string;
     endereco: string;
     telefone: string;
@@ -14,6 +15,12 @@ export class Pizzaria {
         this.menu = data.menu || [];
         this.nome = data.nome || "Pizzaria Default";
         this.pedidos = data.pedidos || [];
+    }
+    listarPedidos(): Pedido[] {
+        this.pedidos.forEach((pedido) => {
+            console.log(`Pedido Nº: ${pedido.getNumeroPedido()}.\n Produtos: ${pedido.getProdutosPedido().join(', ')}`);
+        });
+        return this.pedidos
     }
 
     adicionarProduto(produto: Produto) {

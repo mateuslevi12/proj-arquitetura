@@ -4,10 +4,6 @@ import { Ingrediente } from "./ingrediente";
 import { Pizza } from "./pizza";
 import { Pizzaria } from "./pizzaria";
 
-const mussarela = new Ingrediente('mussarela', '200g')
-const molho = new Ingrediente('molho de tomate', '100g')
-const oregano = new Ingrediente('oregano', '10g')
-
 const pizzaMussarela = new Pizza({
     id: 1,
     sabor: 'mussarela',
@@ -15,6 +11,10 @@ const pizzaMussarela = new Pizza({
     nome: 'pizza de mussarela',
     valor: 20,
 })
+
+const mussarela = new Ingrediente('mussarela', '200g')
+const molho = new Ingrediente('molho de tomate', '100g')
+const oregano = new Ingrediente('oregano', '10g')
 
 pizzaMussarela.adicionarIngrediente(mussarela)
 pizzaMussarela.adicionarIngrediente(molho)

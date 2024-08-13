@@ -1,16 +1,14 @@
 import { Cliente } from "./cliente"
-import { Pizza } from "./pizza"
-import { Produto } from "./produto"
+import { Pizzaria } from "./pizzaria"
 import { ProdutoPedido } from "./produtoPedido"
 
 export class Pedido {
-    numero: number
+    private numero: number = Math.floor(Math.random() * 1000000) + 1;
     cliente: Cliente
     private produtos: ProdutoPedido[] = []
     private valorTotal: number
 
     constructor(data: Partial<Pedido>) {
-        this.numero = data.numero || 0
         this.cliente = data.cliente || new Cliente({
             endereco: '',
             telefone: '',
@@ -19,14 +17,16 @@ export class Pedido {
         })
     }
 
+    getNumeroPedido() {
+        return this.numero
+    }
+
     getValorTotal() {
         return this.valorTotal;
     }
 
     getProdutosPedido() {
-        return this.produtos.forEach(produto => {
-            `${produto.produto.nome} | ${produto.produto.valor}`
-        })
+        return this.produtos.map(produto => `${produto.produto.nome} | ${produto.produto.valor}`);
     }
 
     adicionarProduto(produto: ProdutoPedido) {

@@ -1,6 +1,6 @@
+import { Bebida } from "./bebida";
 import { Cliente } from "./cliente";
 import { Ingrediente } from "./ingrediente";
-import { Pedido } from "./pedido";
 import { Pizza } from "./pizza";
 import { Pizzaria } from "./pizzaria";
 
@@ -12,13 +12,20 @@ const pizzaMussarela = new Pizza({
     id: 1,
     sabor: 'mussarela',
     tamanho: 'grande',
-    nome: '',
+    nome: 'pizza de mussarela',
     valor: 20,
 })
 
 pizzaMussarela.adicionarIngrediente(mussarela)
 pizzaMussarela.adicionarIngrediente(molho)
 pizzaMussarela.adicionarIngrediente(oregano)
+
+const bebida = new Bebida({
+    nome: 'coca cola',
+    quantidade: '500ml',
+    valor: 8,
+})
+
 
 const pizzariaUnifor = new Pizzaria({
     endereco: 'Rua pizzaria',
@@ -27,6 +34,7 @@ const pizzariaUnifor = new Pizzaria({
 })
 
 pizzariaUnifor.adicionarProduto(pizzaMussarela)
+pizzariaUnifor.adicionarProduto(bebida)
 
 const cliente = new Cliente({
     nome: 'Mateus',
@@ -34,16 +42,6 @@ const cliente = new Cliente({
     telefone: '(11) 8888-8888'
 })
 
-const pedido = new Pedido({
-    cliente: cliente,
-    numero: 1,
-})
+cliente.realizarPedido([pizzariaUnifor.menu[0], pizzariaUnifor.menu[1]], pizzariaUnifor)
 
-cliente.adicionarPedido(pedido)
-pizzariaUnifor.adicionarPedido(pedido)
-
-pizzariaUnifor.menu.map(pizza => (
-    pedido.adicionarProduto(pizza)
-))
-
-pizzariaUnifor.toString()
+cliente.listarPedidos()

@@ -10,8 +10,8 @@ export class Pizza extends Produto {
   constructor(data: Partial<Pizza>) {
     super(data);
     this.id = data.id;
-    this.sabor = data.sabor || '';
-    this.tamanho = data.tamanho || '';
+    this.sabor = data.sabor;
+    this.tamanho = data.tamanho;
   }
 
   adicionarIngrediente(ingrediente: Ingrediente): void {

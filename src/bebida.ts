@@ -1,7 +1,7 @@
 import { Produto } from "./produto";
 
 export class Bebida extends Produto {
-    quantidade: number;
+    quantidade: string;
 
     constructor(data: Bebida) {
         super(data);

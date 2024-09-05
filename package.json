@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "ts-node TransacoesBancarias/index.ts",
+    "dev": "ts-node Zoologico/index.ts",
     "src": "ts-node src-pizzaria/index.ts"
   },
   "keywords": [],
